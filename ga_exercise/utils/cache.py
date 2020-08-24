@@ -44,5 +44,6 @@ def cache_method(arg_getters=list):
 
 
 def invalidate_profile_cache(user_id: int) -> None:
-    cache_key = CACHE_KEY_DEFAULT.format(function="ProfileView.get", arg=user_id)
+    user_arg = "_" + str(user_id)
+    cache_key = CACHE_KEY_DEFAULT.format(function="ProfileView.get", arg=user_arg)
     cache.delete(cache_key)
